@@ -2,6 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import './App.css';
 //more imports
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import Comments from '../Comments/Comments';
 import Feeling from '../Feeling/Feeling';
@@ -10,6 +12,23 @@ import Support from '../Support/Support';
 import Understanding from '../Understanding/Understanding';
 
 function App() {
+
+  //get server info on page load
+  useEffect(() => {
+    console.log('in useEffect');
+    getFeedback();
+  }, [])
+
+  const dispatch = useDispatch();
+
+  // getFeedback
+  const getFeedback = () => {
+    axios.get('/feedback')
+      .then(response => {
+        console.log('response', response.data);
+        dispatch({type: 'GET_FEEDBACK', payload: response.data});
+      })
+  };
 
   return (
     <div className='App'>
