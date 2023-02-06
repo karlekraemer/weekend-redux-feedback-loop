@@ -15,6 +15,7 @@ const Feeling = () => {
         dispatch({ type: 'SET_FEELING', payload: event.target.value });
     }
 
+
     // make an onClick function to simplify return code?
 
     return (

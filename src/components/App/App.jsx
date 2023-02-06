@@ -5,6 +5,7 @@ import './App.css';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
+//import routes
 import Comments from '../Comments/Comments';
 import Feeling from '../Feeling/Feeling';
 import Review from '../Review/Review';
@@ -12,23 +13,6 @@ import Support from '../Support/Support';
 import Understanding from '../Understanding/Understanding';
 
 function App() {
-
-  //get server info on page load
-  useEffect(() => {
-    console.log('in useEffect');
-    getFeedback();
-  }, [])
-
-  const dispatch = useDispatch();
-
-  // getFeedback
-  const getFeedback = () => {
-    axios.get('/feedback')
-      .then(response => {
-        console.log('response', response.data);
-        dispatch({type: 'GET_FEEDBACK', payload: response.data});
-      })
-  };
 
   return (
     <div className='App'>
@@ -42,6 +26,18 @@ function App() {
             {/* feeling/page one */}
             <Route exact path="/">
               <Feeling />
+            </Route>
+            <Route exact path="/understanding">
+              <Understanding />
+            </Route>
+            <Route exact path="/support">
+              <Support />
+            </Route>
+            <Route exact path="/comments">
+              <Comments />
+            </Route>
+            <Route exact path="/review">
+              <Review />
             </Route>
           </div>
         </Router>

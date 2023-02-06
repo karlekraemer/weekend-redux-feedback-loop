@@ -16,11 +16,47 @@ const feeling = (state = '', action) => {
     return state;
 }
 
+// understanding reducer for page two
+const understanding = (state = '', action) => {
+    if (action.type === 'SET_UNDERSTANDING') {
+        return action.payload;
+    }
+    return state;
+}
+
+// support reducer for page three
+const support = (state = '', action) => {
+    if (action.type === 'SET_SUPPORT') {
+        return action.payload;
+    }
+    return state;
+}
+
+// comments reducer for page four
+const comments = (state = '', action) => {
+    if (action.type === 'SET_COMMENTS') {
+        return action.payload;
+    }
+    return state;
+}
+
+// feedback reducer
+const feedbackItem = (state = [], action) => {
+    if(action.type === 'SET_FEEDBACK_ITEM') {
+        return action.payload;
+    }
+    return state;
+}
+
 //Redux store tracks all reducers
 const storeInstance = createStore(
     combineReducers(
         {
             feeling,
+            understanding,
+            support,
+            comments,
+            feedbackItem,
             //etc
         }
     ),
