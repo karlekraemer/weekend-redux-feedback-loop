@@ -13,6 +13,7 @@ const Comments = () => {
     const handleChange = (event) => {
         //pass data to the reducer
         dispatch({ type: 'SET_COMMENTS', payload: event.target.value });
+        dispatch({ type: 'ADD_FEEDBACK', payload: event.target.value});
     }
 
 

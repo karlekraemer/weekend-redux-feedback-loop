@@ -13,6 +13,7 @@ const Support = () => {
     const handleChange = (event) => {
         //pass data to the reducer
         dispatch({ type: 'SET_SUPPORT', payload: event.target.value });
+        dispatch({ type: 'ADD_FEEDBACK', payload: event.target.value});
     }
 
 

@@ -41,9 +41,10 @@ const comments = (state = '', action) => {
 }
 
 // feedback reducer
-const feedbackItem = (state = [], action) => {
-    if(action.type === 'SET_FEEDBACK_ITEM') {
-        return action.payload;
+const feedbackResult = (state = [], action) => {
+    if(action.type === 'ADD_FEEDBACK') {
+        console.log(`added feedback ${action.payload}`);
+        return [...state, action.payload];
     }
     return state;
 }
@@ -56,7 +57,7 @@ const storeInstance = createStore(
             understanding,
             support,
             comments,
-            feedbackItem,
+            feedbackResult,
             //etc
         }
     ),

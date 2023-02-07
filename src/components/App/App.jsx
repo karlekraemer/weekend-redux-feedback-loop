@@ -2,8 +2,6 @@ import React from 'react';
 import axios from 'axios';
 import './App.css';
 //more imports
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 //import routes
 import Comments from '../Comments/Comments';
@@ -11,6 +9,7 @@ import Feeling from '../Feeling/Feeling';
 import Review from '../Review/Review';
 import Support from '../Support/Support';
 import Understanding from '../Understanding/Understanding';
+import Finished from '../Finished/Finished';
 
 function App() {
 
@@ -38,6 +37,9 @@ function App() {
             </Route>
             <Route exact path="/review">
               <Review />
+            </Route>
+            <Route exact path="/finished">
+              <Finished />
             </Route>
           </div>
         </Router>

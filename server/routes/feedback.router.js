@@ -17,14 +17,14 @@ router.get('/', (req, res) => {
 
 //post request
 router.post('/', (req, res) => {
-    console.log('POST req.body', req.body);
+    let feedbackResult = req.body;
+    console.log('POST req.body', feedbackResult);
     let queryText = 'INSERT INTO "feedback" ("feeling", "understanding", "support", "comments") VALUES ($1, $2, $3, $4);';
-    let { feeling, understanding, support, comments } = req.body;
-    pool.query(queryText, [feeling, understanding, support, comments])
+    pool.query(queryText, feedbackResult)
         .then((result) => {
             res.sendStatus(200);
         }).catch((err) => {
-            console.log(err);
+            console.log('error adding newFeedback', err);
             res.sendStatus(500);
         });
 });
